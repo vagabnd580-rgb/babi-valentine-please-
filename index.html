@@ -10,10 +10,9 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #0f0f0f;
+    background: #ffffff;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #fff;
-    overflow: hidden;
+    color: #000;
   }
 
   .container {
@@ -27,19 +26,8 @@
   }
 
   h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
-
-  .cat {
-    font-size: 5rem;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
+    font-size: 2.2rem;
+    font-weight: 500;
   }
 
   .buttons {
@@ -51,35 +39,27 @@
     padding: 12px 28px;
     font-size: 1rem;
     border-radius: 999px;
-    border: none;
+    border: 1px solid #000;
+    background: #fff;
     cursor: pointer;
-    transition: transform 0.15s ease;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-  .yes {
-    background: #ffffff;
-    color: #000;
   }
 
   .no {
-    background: #2a2a2a;
-    color: #fff;
     position: relative;
+  }
+
+  img {
+    max-width: 300px;
   }
 </style>
 </head>
 <body>
 
 <div class="container" id="content">
-  <div class="cat">🐈‍⬛</div>
   <h1>Will you be my Valentine?</h1>
 
   <div class="buttons">
-    <button class="yes" onclick="accept()">Yes</button>
+    <button onclick="yesClicked()">Yes</button>
     <button class="no" onmouseover="moveNo()">No</button>
   </div>
 </div>
@@ -94,10 +74,9 @@
     btn.style.top = y + "px";
   }
 
-  function accept() {
-    document.getElementById('content').innerHTML = `
-      <div class="cat">🐈‍⬛</div>
-      <h1>See you on Valentine’s Day.</h1>
+  function yesClicked() {
+    document.getElementById("content").innerHTML = `
+      <img src="https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif" alt="Fireworks">
     `;
   }
 </script>
