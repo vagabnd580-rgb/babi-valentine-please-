@@ -1,85 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Valentine</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #000;
-  }
+    .container {
+      text-align: center;
+    }
 
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    text-align: center;
-  }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
 
-  h1 {
-    font-size: 2.2rem;
-    font-weight: 500;
-  }
+    .buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
 
-  .buttons {
-    display: flex;
-    gap: 16px;
-  }
-
-  button {
-    padding: 12px 28px;
-    font-size: 1rem;
-    border-radius: 999px;
-    border: 1px solid #000;
-    background: #fff;
-    cursor: pointer;
-  }
-
-  .no {
-    position: relative;
-  }
-
-  img {
-    max-width: 300px;
-  }
-</style>
-</head>
-<body>
-
-<div class="container" id="content">
-  <h1>Will you be my Valentine?</h1>
-
-  <div class="buttons">
-    <button onclick="yesClicked()">Yes</button>
-    <button class="no" onmouseover="moveNo()">No</button>
-  </div>
-</div>
-
-<script>
-  function moveNo() {
-    const btn = document.querySelector('.no');
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 60);
-    btn.style.position = "absolute";
-    btn.style.left = x + "px";
-    btn.style.top = y + "px";
-  }
-
-  function yesClicked() {
-    document.getElementById("content").innerHTML = `
-      <img src="https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif" alt="Fireworks">
-    `;
-  }
-</script>
-
-</body>
-</html>
+    button {
+      padding: 12px 28px;
+      font-size: 1rem;
