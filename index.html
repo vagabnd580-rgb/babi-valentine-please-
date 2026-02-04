@@ -1,117 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Babi 💖</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #1f1f1f, #ff8fab);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      text-align: center;
-      color: #fff;
-      overflow: hidden;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Babi 🖤 Valentine</title>
 
-    .card {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 40px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-      max-width: 420px;
-    }
+<style>
+  body, html {
+    margin:0; padding:0;
+    width:100%; height:100%;
+    overflow:hidden; 
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #000000, #551a8b);
+    color:white;
+    text-align:center;
+  }
+  #mainContent {
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    width:100%;
+    max-width:600px;
+    padding:20px;
+  }
+  h1 {
+    font-size:2.8rem;
+    text-shadow: 0 0 10px #ff4d6d;
+  }
+  .btn {
+    margin:10px;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:1.2rem;
+    cursor:pointer;
+    border:none;
+    transition:0.2s ease;
+  }
+  .yesBtn {
+    background:#ff4d6d; color:white;
+  }
+  .noBtn {
+    background:#fff; color:#222;
+    position:relative;
+  }
 
-    h1 {
-      font-size: 2.3em;
-      margin-bottom: 10px;
-    }
+  /* floating cat heads */
+  .cat {
+    position:absolute;
+    width:50px;
+    height:50px;
+    background-image:url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f63a.svg');
+    background-size:cover;
+    opacity:0.7;
+    animation:floatUp 8s infinite;
+  }
+  @keyframes floatUp {
+    to { transform: translateY(-120vh); opacity:0; }
+  }
+</style>
 
-    p {
-      font-size: 1.2em;
-    }
-
-    button {
-      margin: 15px;
-      padding: 15px 30px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .yes {
-      background-color: #ff4d6d;
-      color: white;
-    }
-
-    .yes:hover {
-      transform: scale(1.1);
-    }
-
-    .no {
-      background-color: #fff;
-      color: #333;
-      position: relative;
-    }
-  </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Hey babi 🖤</h1>
-    <p>
-      Important question alert 🚨<br><br>
-      Will you be my Valentine? 💘<br><br>
-      I promise:
-      <br>🐈‍⬛ black cat energy
-      <br>🐧 penguin loyalty
-      <br>💋 unlimited kisses
-    </p>
+<div id="mainContent">
+  <h1>Hey Babi 🖤🐈‍⬛</h1>
+  <p>
+    Choose wisely 😏<br>
+    Will you be my Valentine?<br>
+    (I promise black cat energy + penguin loyalty!)
+  </p>
 
-    <button class="yes" onclick="yesClicked()">YES BABI 💕</button>
-    <button class="no" onmouseover="moveButton()">No 😐</button>
-  </div>
+  <button class="btn yesBtn" onclick="sayYes()">YES 🥰</button>
+  <button class="btn noBtn" onmouseover="moveNo()">No 😐</button>
+</div>
 
-  <script>
-    function yesClicked() {
-      document.body.innerHTML = `
-        <div style="
-          height:100vh;
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          text-align:center;
-          font-family:'Comic Sans MS', cursive;
-          color:white;
-          background:linear-gradient(135deg, #000000, #ff4d6d);
-        ">
-          <div>
-            <h1>OBVIOUSLY 😌🖤</h1>
-            <p>
-              Of course you said yes, babi 💕<br><br>
-              You + me = black cat & penguin vibes forever 🐈‍⬛🐧<br><br>
-              Can’t wait to be your Valentine
-              <br>and your favorite human 🫶
-            </p>
-          </div>
-        </div>
-      `;
+<script>
+  // move "No" button randomly
+  function moveNo() {
+    const btn = document.querySelector('.noBtn');
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+    btn.style.position='absolute';
+    btn.style.left=x+'px';
+    btn.style.top=y+'px';
+  }
+
+  // when yes is clicked
+  function sayYes() {
+    document.body.innerHTML = `
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">
+        <h1>OF COURSE YOU SAID YES 😘🖤</h1>
+        <p>
+          Babi, I knew you’d pick me 🐈‍⬛🐧<br>
+          You + me = Legendary Valentine 🥂💕
+        </p>
+      </div>`;
+  }
+
+  // create floating cats
+  function createCats() {
+    const count = 15;
+    for(let i=0; i<count; i++){
+      let cat = document.createElement('div');
+      cat.className='cat';
+      cat.style.left=(Math.random()*100)+'vw';
+      cat.style.top='110vh';
+      cat.style.animationDuration=(5+Math.random()*5)+'s';
+      document.body.appendChild(cat);
     }
-
-    function moveButton() {
-      const button = document.querySelector('.no');
-      const x = Math.random() * (window.innerWidth - 120);
-      const y = Math.random() * (window.innerHeight - 60);
-      button.style.position = "absolute";
-      button.style.left = `${x}px`;
-      button.style.top = `${y}px`;
-    }
-  </script>
+  }
+  createCats();
+</script>
 
 </body>
 </html>
