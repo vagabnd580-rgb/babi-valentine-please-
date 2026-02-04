@@ -1,38 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #ffffff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Valentine</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .container {
-      text-align: center;
-    }
+  .container {
+    text-align: center;
+  }
 
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
 
-    .buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-    }
+  .buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
 
-    button {
-      padding: 12px 28px;
-      font-size: 1rem;
+  button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 999px;
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  img {
+    max-width: 300px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="content">
+  <h1>Will you be my Valentine?</h1>
+  <div class="buttons">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const content = document.getElementById('content');
+
+  let yesScale = 1; // initial scale
+
+  // When the user hovers over or clicks "No", grow the "Yes" button
+  noBtn.addEventListener('mouseover', () => {
+    yesScale += 0.1;
+    yesBtn.style.transform = `scale(${yesScale})`;
+  });
+
+  noBtn.addEventListener('click', () => {
+    yesScale += 0.2;
+    yesBtn.style.transform = `scale(${yesScale})`;
+  });
+
+  // Show fireworks when Yes is clicked
+  yesBtn.addEventListener('click', () => {
+    content.innerHTML = '<img src="https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif" alt="Fireworks">';
+  });
+</script>
+
+</body>
+</html>
