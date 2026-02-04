@@ -2,114 +2,104 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Babi 🖤 Valentine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Valentine</title>
 
 <style>
-  body, html {
-    margin:0; padding:0;
-    width:100%; height:100%;
-    overflow:hidden; 
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #000000, #551a8b);
-    color:white;
-    text-align:center;
-  }
-  #mainContent {
-    position:absolute;
-    top:50%; left:50%;
-    transform:translate(-50%, -50%);
-    width:100%;
-    max-width:600px;
-    padding:20px;
-  }
-  h1 {
-    font-size:2.8rem;
-    text-shadow: 0 0 10px #ff4d6d;
-  }
-  .btn {
-    margin:10px;
-    padding:15px 30px;
-    border-radius:30px;
-    font-size:1.2rem;
-    cursor:pointer;
-    border:none;
-    transition:0.2s ease;
-  }
-  .yesBtn {
-    background:#ff4d6d; color:white;
-  }
-  .noBtn {
-    background:#fff; color:#222;
-    position:relative;
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0f0f0f;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #fff;
+    overflow: hidden;
   }
 
-  /* floating cat heads */
-  .cat {
-    position:absolute;
-    width:50px;
-    height:50px;
-    background-image:url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f63a.svg');
-    background-size:cover;
-    opacity:0.7;
-    animation:floatUp 8s infinite;
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
   }
-  @keyframes floatUp {
-    to { transform: translateY(-120vh); opacity:0; }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  .cat {
+    font-size: 5rem;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+  }
+
+  .buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  .yes {
+    background: #ffffff;
+    color: #000;
+  }
+
+  .no {
+    background: #2a2a2a;
+    color: #fff;
+    position: relative;
   }
 </style>
-
 </head>
 <body>
 
-<div id="mainContent">
-  <h1>Hey Babi 🖤🐈‍⬛</h1>
-  <p>
-    Choose wisely 😏<br>
-    Will you be my Valentine?<br>
-    (I promise black cat energy + penguin loyalty!)
-  </p>
+<div class="container" id="content">
+  <div class="cat">🐈‍⬛</div>
+  <h1>Will you be my Valentine?</h1>
 
-  <button class="btn yesBtn" onclick="sayYes()">YES 🥰</button>
-  <button class="btn noBtn" onmouseover="moveNo()">No 😐</button>
+  <div class="buttons">
+    <button class="yes" onclick="accept()">Yes</button>
+    <button class="no" onmouseover="moveNo()">No</button>
+  </div>
 </div>
 
 <script>
-  // move "No" button randomly
   function moveNo() {
-    const btn = document.querySelector('.noBtn');
+    const btn = document.querySelector('.no');
     const x = Math.random() * (window.innerWidth - 120);
     const y = Math.random() * (window.innerHeight - 60);
-    btn.style.position='absolute';
-    btn.style.left=x+'px';
-    btn.style.top=y+'px';
+    btn.style.position = "absolute";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
   }
 
-  // when yes is clicked
-  function sayYes() {
-    document.body.innerHTML = `
-      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">
-        <h1>OF COURSE YOU SAID YES 😘🖤</h1>
-        <p>
-          Babi, I knew you’d pick me 🐈‍⬛🐧<br>
-          You + me = Legendary Valentine 🥂💕
-        </p>
-      </div>`;
+  function accept() {
+    document.getElementById('content').innerHTML = `
+      <div class="cat">🐈‍⬛</div>
+      <h1>See you on Valentine’s Day.</h1>
+    `;
   }
-
-  // create floating cats
-  function createCats() {
-    const count = 15;
-    for(let i=0; i<count; i++){
-      let cat = document.createElement('div');
-      cat.className='cat';
-      cat.style.left=(Math.random()*100)+'vw';
-      cat.style.top='110vh';
-      cat.style.animationDuration=(5+Math.random()*5)+'s';
-      document.body.appendChild(cat);
-    }
-  }
-  createCats();
 </script>
 
 </body>
