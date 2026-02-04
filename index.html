@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Babi 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #1f1f1f, #ff8fab);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      max-width: 420px;
+    }
+
+    h1 {
+      font-size: 2.3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    button {
+      margin: 15px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .yes:hover {
+      transform: scale(1.1);
+    }
+
+    .no {
+      background-color: #fff;
+      color: #333;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey babi 🖤</h1>
+    <p>
+      Important question alert 🚨<br><br>
+      Will you be my Valentine? 💘<br><br>
+      I promise:
+      <br>🐈‍⬛ black cat energy
+      <br>🐧 penguin loyalty
+      <br>💋 unlimited kisses
+    </p>
+
+    <button class="yes" onclick="yesClicked()">YES BABI 💕</button>
+    <button class="no" onmouseover="moveButton()">No 😐</button>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          text-align:center;
+          font-family:'Comic Sans MS', cursive;
+          color:white;
+          background:linear-gradient(135deg, #000000, #ff4d6d);
+        ">
+          <div>
+            <h1>OBVIOUSLY 😌🖤</h1>
+            <p>
+              Of course you said yes, babi 💕<br><br>
+              You + me = black cat & penguin vibes forever 🐈‍⬛🐧<br><br>
+              Can’t wait to be your Valentine
+              <br>and your favorite human 🫶
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    function moveButton() {
+      const button = document.querySelector('.no');
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+      button.style.position = "absolute";
+      button.style.left = `${x}px`;
+      button.style.top = `${y}px`;
+    }
+  </script>
+
+</body>
+</html>
